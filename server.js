@@ -25,6 +25,7 @@ app.get('/api/students', async (req, res) => {
                 b.BlockName, b.YearLevel, b.Semester
             FROM student s
             INNER JOIN block b ON s.BlockID = b.BlockID
+            ORDER BY s.StudentID ASC
         `;
         const [students] = await db.execute(query);
 
