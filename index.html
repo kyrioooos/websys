@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT MODULE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box-container">
+            <form id="studentForm">
+                <h1>Add new student</h1>
+                <p>Fill in fields to create a record</p>
+                
+                <h2>PERSONAL INFORMATION</h2>
+                <label for="studentNum">STUDENT NUMBER</label><br>
+                <input type="text" id="studentNum" name="studentNum" placeholder="e.g. 2024-10042" required><br>
+
+                <label for="fn">FIRST NAME</label><br>
+                <input type="text" id="fn" name="fn" placeholder="e.g. Maria" required><br>
+                
+                <label for="ln">LAST NAME</label><br>
+                <input type="text" id="ln" name="ln" placeholder="e.g. Santos" required><br>
+                
+                <label for="mail">EMAIL ADDRESS</label><br>
+                <input type="email" id="mail" name="mail" placeholder="e.g. maria@student.edu" required><br>
+                
+                <h2>ACADEMIC INFORMATION</h2>
+                <label for="year">YEAR LEVEL</label><br>
+                <select name="year" id="year" required>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select><br>
+
+                <label for="semester">SEMESTER</label><br>
+                <select name="semester" id="semester" required>
+                <option value="1">1st Semester</option>
+                <option value="2">2nd Semester</option>
+                </select><br>
+                
+                <label for="status">STATUS</label><br>
+                <select name="status" id="status" required>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select><br>
+                
+                <button type="submit">Add Student</button>
+            </form>
+        </div>
+
+        <div class="header">
+            <h1>Student Record</h1>
+            <p>Web Systems & Technologies - A.Y. 2024-2025</p>
+        </div>
+
+        <div class="total">
+            <h1>TOTAL STUDENTS</h1>
+            <h2 id="statTotal">0</h2>
+            <p>Enrolled in database</p>
+        </div>
+
+        <div class="activestuds">
+            <h1>ACTIVE STUDENTS</h1>
+            <h2 id="statActive">0</h2>
+            <p id="statActivePct">0% of total enrolled</p>
+        </div>
+
+        <div class="inact">
+            <h1>INACTIVE</h1>
+            <h2 id="statInactive">0</h2>
+            <p>Not currently active</p>
+        </div>
+
+        <div class="student-table-container" style="grid-column: span 3; background: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h2>Registered Students Master Roster</h2>
+            <table id="studentTable" style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left;">
+                <thead>
+                    <tr style="background-color: #f4f6f9; border-bottom: 2px solid #eaeaea;">
+                        <th style="padding: 10px;">ID</th>
+                        <th style="padding: 10px;">Student Number</th>
+                        <th style="padding: 10px;">Full Name</th>
+                        <th style="padding: 10px;">Email</th>
+                        <th style="padding: 10px;">Year Level</th>
+                        <th style="padding: 10px;">Semester</th>
+                        <th style="padding: 10px;">Status</th>
+                        <th style="padding: 10px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
