@@ -1,0 +1,275 @@
+/* Global reset and base */
+* { box-sizing: border-box; }
+html,body{
+	height:100%;
+	margin:0;
+	width:100%;
+	overflow-x:hidden;
+	font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+	background:#f1f5f9;
+	color:#1f2937;
+}
+a{ color:inherit; }
+
+.container{
+	max-width:100%;
+	margin:20px;
+	display:grid;
+	grid-template-columns: 340px 1fr;
+	column-gap:18px;
+	row-gap:0;
+	align-items:start;
+	padding:12px 16px;
+	box-sizing:border-box;
+}
+
+.box-container{
+	background:linear-gradient(180deg,#ffffff 0%, #f8fafb 100%);
+	border-radius:10px;
+	padding:18px;
+	box-shadow:0 6px 18px rgba(15,23,42,0.08);
+	border:1px solid rgba(2,6,23,0.06);
+}
+
+.box-container-wrapper {
+	grid-column: 1;
+	grid-row: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.title-box {
+	background: linear-gradient(135deg, #1a6fd4 0%, #0a4f9a 100%);
+	border: none;
+	padding: 20px 18px;
+	border-radius: 10px;
+}
+.title-box h1 {
+	color: #ffffff;
+	margin: 0 0 6px 0;
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+}
+.title-box p {
+	color: rgba(255,255,255,0.85);
+	margin: 0;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.box-container h2.section-personal {
+	background: none;
+	color: #1d4ed8;
+	margin: 0 0 14px 0;
+	padding: 0 0 8px 0;
+	border-radius: 0;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 1px;
+	border-bottom: 3px solid #2563eb;
+}
+
+.box-container h2.section-academic {
+	background: none;
+	color: #d97706;
+	margin: 16px 0 14px 0;
+	padding: 0 0 8px 0;
+	border-radius: 0;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 1px;
+	border-bottom: 3px solid #f59e0b;
+}
+
+.main-title { margin-bottom: 6px; }
+.main-title h1 { margin:0; font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:#0b2540 }
+.main-title .subtitle { margin:4px 0 0 0; color:#64748b; font-size:13px }
+
+.box-container { grid-column: unset; grid-row: unset; }
+
+.box-container h1{ margin:0 0 6px 0; font-size:18px; color:#04263b; }
+.box-container p{ margin:0 0 14px 0; color:#475569; font-size:13px }
+
+#studentForm h2{ font-size:12px; color:#334155; margin:12px 0 6px 0; letter-spacing:0.6px }
+label{ font-size:11px; color:#0f172a; font-weight:700; display:block; text-transform:uppercase; letter-spacing:0.6px }
+input[type=text], input[type=email], input[type=number], select{
+	width:100%;
+	padding:10px 12px;
+	margin:6px 0 12px 0;
+	border-radius:8px;
+	border:1px solid #cbd5e1;
+	background:linear-gradient(180deg,#ffffff,#fbfdff);
+	outline:none;
+	font-size:14px;
+	box-shadow: inset 0 1px 2px rgba(2,6,23,0.03);
+	transition: border-color .15s ease, box-shadow .15s ease;
+}
+input::placeholder, input::-webkit-input-placeholder{ color:#94a3b8 }
+select{ appearance:none; background-image:linear-gradient(45deg,transparent 50%, #6b7280 50%), linear-gradient(135deg,#6b7280 50%, transparent 50%); background-position:calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; padding-right:36px }
+input:focus, select:focus{ border-color:#60a5fa; box-shadow:0 0 0 4px rgba(96,165,250,0.06) }
+
+.form-row{ display:flex; gap:10px }
+.form-row .col{ flex:1 }
+.form-row .col.small{ flex:0 0 100px }
+.form-row .col.medium{ flex:0 0 160px }
+
+.box-container label+input, .box-container label+select{ margin-top:6px }
+
+input:focus, select:focus{ border-color:#60a5fa; box-shadow:0 0 0 3px rgba(96,165,250,0.08) }
+
+button[type=submit]{
+	display:block;
+	width:100%;
+	padding:10px 14px;
+	background: linear-gradient(180deg,#0b60b8,#0a4f9a);
+	color:#fff;
+	border:none;
+	border-radius:8px;
+	font-weight:700;
+	cursor:pointer;
+	margin-top:6px;
+}
+
+button[type=submit]:hover{ opacity:0.95 }
+
+.right-panel {
+	grid-column: 2;
+	grid-row: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	min-width: 0;
+	overflow: hidden;
+}
+
+.header {
+	background: transparent;
+	padding: 2px 12px 0 12px;
+}
+.header h1 { margin: 0 0 6px 0; font-size: 20px; color: #0f172a; }
+.header p  { margin: 0 0 6px 0; color: #64748b; font-size: 13px; }
+
+.stats-row {
+	display: flex;
+	gap: 8px;
+	align-items: flex-start;
+}
+.stats-row > div { flex: 1; min-width: 0; }
+
+.filters-bar {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.filters-bar input[type="text"]{ flex:1 1 60%; padding:10px 12px; border-radius:8px; border:1px solid #cbd5e1; background:#fff; box-shadow: inset 0 1px 2px rgba(2,6,23,0.03); font-size:14px }
+.filters-bar select{ flex:0 0 180px; padding:10px 12px; border-radius:8px; border:1px solid #cbd5e1; background:#fff; font-size:14px; appearance:none; -webkit-appearance:none; -moz-appearance:none; background-image:linear-gradient(45deg,transparent 50%, #6b7280 50%), linear-gradient(135deg,#6b7280 50%, transparent 50%); background-position:calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px); background-size:6px 6px,6px 6px; background-repeat:no-repeat; padding-right:36px }
+
+@media (max-width:980px){
+	.filters-bar{ grid-column:1 / -1; flex-direction:column; align-items:stretch }
+	.filters-bar select{ width:100%; min-width:0 }
+}
+
+.total, .activestuds, .inact{
+	background:linear-gradient(180deg,#fff 0%, #fcfeff 100%);
+	border-radius:10px;
+	padding:10px 12px;
+	box-shadow:0 6px 18px rgba(2,6,23,0.04);
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+.total h1, .activestuds h1, .inact h1{ margin:0; font-size:12px; color:#334155 }
+.total h2, .activestuds h2, .inact h2{ margin:6px 0 0 0; font-size:28px; color:#0b2540 }
+.total p, .activestuds p, .inact p{ margin:4px 0 0 0; color:#64748b; font-size:12px }
+
+.total{ background:linear-gradient(90deg,#e6f2ff,#f7fbff); border-left:6px solid #3b82f6 }
+.activestuds{ background:linear-gradient(90deg,#fff7ed,#fffdf6); border-left:6px solid #f59e0b }
+.inact{ background:linear-gradient(90deg,#eef2ff,#fbfdff); border-left:6px solid #60a5fa }
+
+.student-table-container {
+	padding: 16px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+	border: 1px solid rgba(2,6,23,0.04);
+	min-width: 0;
+}
+
+.student-table-container h2 { margin: 0 0 12px 0; font-size: 16px; color: #0f172a; }
+
+.table-scroll-area {
+	overflow-x: scroll;
+	overflow-y: scroll;
+	max-height: 320px;
+	min-height: 200px;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	width: 100%;
+}
+
+.table-scroll-area::-webkit-scrollbar { height: 10px; width: 10px; }
+.table-scroll-area::-webkit-scrollbar-track { background: #e2e8f0; }
+.table-scroll-area::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; border: 2px solid #e2e8f0; }
+.table-scroll-area::-webkit-scrollbar-thumb:hover { background: #64748b; }
+.table-scroll-area::-webkit-scrollbar-corner { background: #e2e8f0; }
+.table-scroll-area { scrollbar-width: auto; }
+
+#studentTable {
+	width: max-content;
+	min-width: 1400px;
+	border-collapse: collapse;
+	table-layout: auto;
+}
+
+#studentTable tbody:empty::after {
+	content: '';
+	display: block;
+	height: 200px;
+}
+
+#studentTable thead th {
+	background: #f1f5f9;
+	color: #334155;
+	font-weight: 700;
+	padding: 12px 20px;
+	font-size: 13px;
+	border-bottom: 2px solid #e6eef6;
+	white-space: nowrap;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+#studentTable tbody td {
+	padding: 10px 20px;
+	font-size: 13px;
+	border-bottom: 1px solid #f3f6f9;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.badge{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700 }
+.badge.active{ background:linear-gradient(180deg,#dbeafe,#bfdbfe); color:#0b3a6f }
+.badge.inactive{ background:linear-gradient(180deg,#fee2e2,#fca5a5); color:#6b0f0f }
+
+.action-btn{ border:none; padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700; font-size:12px; margin-right:6px }
+.btn-toggle{ background:linear-gradient(180deg,#e6f0ff,#dbeafe); color:#04428a }
+.btn-edit{ background:linear-gradient(180deg,#e6f7ff,#cfefff); color:#0a4f9a }
+.btn-delete{ background:linear-gradient(180deg,#ffd9c2,#ffb07a); color:#8a2b00 }
+
+.action-btn:active{ transform:translateY(1px) }
+
+@media (max-width:980px){
+	.container{ grid-template-columns:1fr; padding:10px }
+	.box-container{ order:0 }
+	.student-table-container{ order:1 }
+	.stats-row{ flex-direction:column }
+	.total,.activestuds,.inact{ margin-top:6px; width:100% }
+}
+
+button[onclick^="toggleStatus"], button[onclick^="deleteStudent"]{ padding:6px 8px; border-radius:8px }
