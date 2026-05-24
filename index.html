@@ -8,82 +8,151 @@
 </head>
 <body>
     <div class="container">
-        <div class="box-container">
-            <form id="studentForm">
-                <h1>Add new student</h1>
-                <p>Fill in fields to create a record</p>
-                
-                <h2>PERSONAL INFORMATION</h2>
-                <label for="studentNum">STUDENT NUMBER</label><br>
-                <input type="text" id="studentNum" name="studentNum" placeholder="e.g. 2024-10042" required><br>
 
-                <label for="fn">FIRST NAME</label><br>
-                <input type="text" id="fn" name="fn" placeholder="e.g. Maria" required><br>
-                
-                <label for="ln">LAST NAME</label><br>
-                <input type="text" id="ln" name="ln" placeholder="e.g. Santos" required><br>
-                
-                <label for="mail">EMAIL ADDRESS</label><br>
-                <input type="email" id="mail" name="mail" placeholder="e.g. maria@student.edu" required><br>
-                
-                <h2>ACADEMIC INFORMATION</h2>
-                <label for="blockId">CLASS BLOCK</label><br>
-                <select name="blockId" id="blockId" required></select><br>
-                
-                <label for="status">STATUS</label><br>
-                <select name="status" id="status" required>
-                    <option value="Active">Active</option>
-                    <option value="Inactive">Inactive</option>
-                </select><br>
-                
-                <button type="submit">Add Student</button>
+        <div class="box-container-wrapper">
+
+            <div class="title-box">
+                <h1>Student Record</h1>
+                <p>Web Systems & Technologies - A.Y. 2024-2025</p>
+            </div>
+
+            <form id="studentForm">
+                <div class="box-container">
+
+                    <h2 class="section-personal">PERSONAL INFORMATION</h2>
+
+                    <label for="studentNum">STUDENT NUMBER</label>
+                    <input type="text" id="studentNum" name="studentNum" placeholder="e.g. 2024-10042" required>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="fn">FIRST NAME</label>
+                            <input type="text" id="fn" name="fn" placeholder="e.g. Maria" required>
+                        </div>
+                        <div class="col">
+                            <label for="mn">MIDDLE NAME</label>
+                            <input type="text" id="mn" name="mn" placeholder="e.g. Del Rosario">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="ln">LAST NAME</label>
+                            <input type="text" id="ln" name="ln" placeholder="e.g. Santos" required>
+                        </div>
+                        <div class="col">
+                            <label for="suffix">SUFFIX</label>
+                            <input type="text" id="suffix" name="suffix" placeholder="e.g. Jr.">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col small">
+                            <label for="age">AGE</label>
+                            <input type="number" id="age" name="age" min="0" max="120" placeholder="20">
+                        </div>
+                        <div class="col">
+                            <label for="mail">EMAIL ADDRESS</label>
+                            <input type="email" id="mail" name="mail" placeholder="e.g. maria@student.edu" required>
+                        </div>
+                    </div>
+
+                    <h2 class="section-academic">ACADEMIC INFORMATION</h2>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="blockId">ASSIGNED BLOCK</label>
+                            <select name="blockId" id="blockId" required></select>
+                        </div>
+                        <div class="col">
+                            <label for="yearLevel">YEAR LEVEL</label>
+                            <select name="yearLevel" id="yearLevel" required>
+                                <option value="">-- Select --</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="course">COURSE</label>
+                    <input type="text" id="course" name="course" placeholder="e.g. Bachelor of Science in Information Technology" required>
+                    
+                    <label for="semester">SEMESTER</label>
+                    <select name="semester" id="semester" required>
+                        <option value="">-- Select --</option>
+                        <option value="1st">1st Semester</option>
+                        <option value="2nd">2nd Semester</option>
+                    </select>
+
+                    <label for="status">STATUS</label>
+                    <select name="status" id="status" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+
+                    <button type="submit">Add Student</button>
+                </div>
             </form>
         </div>
 
-        <div class="header">
-            <h1>Student Record</h1>
-            <p>Web Systems & Technologies - A.Y. 2024-2025</p>
+        <div class="right-panel">
+
+            <div class="stats-row">
+                <div class="total">
+                    <h1>TOTAL STUDENTS</h1>
+                    <h2 id="statTotal">0</h2>
+                    <p>Enrolled in database</p>
+                </div>
+                <div class="activestuds">
+                    <h1>ACTIVE STUDENTS</h1>
+                    <h2 id="statActive">0</h2>
+                    <p id="statActivePct">0% of total enrolled</p>
+                </div>
+                <div class="inact">
+                    <h1>INACTIVE</h1>
+                    <h2 id="statInactive">0</h2>
+                    <p>Not currently active</p>
+                </div>
+            </div>
+
+            <div class="filters-bar">
+                <input id="searchBox" type="text" placeholder="Search name or ID...">
+                <select id="filterCourse"><option>All courses</option></select>
+                <select id="filterYear"><option>All years</option></select>
+            </div>
+
+            <div class="student-table-container">
+                <h2>REGISTERED STUDENTS MASTER LIST</h2>
+                <div class="table-scroll-area">
+                <table id="studentTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student Number</th>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                            <th>Suffix</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Assigned Block</th>
+                            <th>Course</th>
+                            <th>Year Level</th>
+                            <th>Semester</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody"></tbody>
+                </table>
+                </div>
+            </div>
         </div>
 
-        <div class="total">
-            <h1>TOTAL STUDENTS</h1>
-            <h2 id="statTotal">0</h2>
-            <p>Enrolled in database</p>
-        </div>
+    </div>       
 
-        <div class="activestuds">
-            <h1>ACTIVE STUDENTS</h1>
-            <h2 id="statActive">0</h2>
-            <p id="statActivePct">0% of total enrolled</p>
-        </div>
-
-        <div class="inact">
-            <h1>INACTIVE</h1>
-            <h2 id="statInactive">0</h2>
-            <p>Not currently active</p>
-        </div>
-
-        <div class="student-table-container" style="grid-column: span 3; background: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-            <h2>Registered Students Master Roster</h2>
-            <table id="studentTable" style="width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left;">
-                <thead>
-                    <tr style="background-color: #f4f6f9; border-bottom: 2px solid #eaeaea;">
-                        <th style="padding: 10px;">ID</th>
-                        <th style="padding: 10px;">Student Number</th>
-                        <th style="padding: 10px;">Full Name</th>
-                        <th style="padding: 10px;">Email</th>
-                        <th style="padding: 10px;">Assigned Block</th>
-                        <th style="padding: 10px;">Year Level</th>
-                        <th style="padding: 10px;">Semester</th>
-                        <th style="padding: 10px;">Status</th>
-                        <th style="padding: 10px;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="studentTableBody"></tbody>
-            </table>
-        </div>
-    </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
